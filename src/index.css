@@ -1,0 +1,139 @@
+@import "tailwindcss";
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;600;700&family=Poppins:wght@300;400;600;700&family=Sora:wght@300;400;600;700;800&display=swap');
+
+:root {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #030303;
+  color: #f3f4f6;
+  font-family: 'Outfit', 'Poppins', sans-serif;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #ff5500 #0a0a0a;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff5500;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #ffaa00;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(18, 18, 18, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-panel-heavy {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 85, 0, 0.15);
+}
+
+/* Custom Glows */
+.text-glow-orange {
+  text-shadow: 0 0 10px rgba(255, 85, 0, 0.6), 0 0 20px rgba(255, 85, 0, 0.3);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(255, 170, 0, 0.6), 0 0 20px rgba(255, 170, 0, 0.3);
+}
+
+.bg-glow-radial {
+  background: radial-gradient(circle at center, rgba(255, 85, 0, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
+}
+
+.bg-glow-radial-strong {
+  background: radial-gradient(circle at center, rgba(255, 60, 0, 0.25) 0%, rgba(255, 60, 0, 0.03) 50%, rgba(0, 0, 0, 0) 70%);
+}
+
+/* Fire Ember Rain Background Particles */
+.ember-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.ember {
+  position: absolute;
+  bottom: -20px;
+  width: 3px;
+  height: 3px;
+  background: #ff5500;
+  border-radius: 50%;
+  opacity: 0;
+  box-shadow: 0 0 8px #ffaa00, 0 0 15px #ff5500;
+  animation: floatUp 8s infinite linear;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-105vh) translateX(var(--drift)) scale(0.2);
+    opacity: 0;
+  }
+}
+
+/* Premium Button Liquid Ripple Effect */
+.btn-magnetic {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.btn-magnetic::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(255,170,0,0.4) 0%, transparent 70%);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.5s ease-out;
+  pointer-events: none;
+}
+
+.btn-magnetic:hover::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Smooth Tilt Hover Card */
+.tilt-card {
+  transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+.tilt-card:hover {
+  box-shadow: 0 10px 30px -10px rgba(255, 85, 0, 0.3);
+}
